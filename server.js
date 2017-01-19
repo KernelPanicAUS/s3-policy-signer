@@ -15,14 +15,15 @@ var app = express();
 
 app.set('port', (process.env.PORT || 5000));
 
-app.use(express.static(__dirname + '/public'));
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
 app.get('/s3_credentials', function(request, response) {
   if (request.query.filename) {
-    var filename =
-      crypto.randomBytes(16).toString('hex') +
-      path.extname(request.query.filename);
-    response.json(s3.s3Credentials(s3Config, {filename: filename, contentType: request.query.content_type}));
+    response.json(s3.s3Credentials(s3Config, {filename: request.query.filename, contentType: request.query.content_type}));
   } else {
     response.status(400).send('filename is required');
   }
