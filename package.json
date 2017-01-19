@@ -1,0 +1,23 @@
+{
+  "name": "s3-policy-signer",
+  "version": "1.0.0",
+  "description": "S3 policy signer",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/KernelPanicAUS/s3-policy-signer.git"
+  },
+  "author": "Thomas Khalil",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KernelPanicAUS/s3-policy-signer/issues"
+  },
+  "homepage": "https://github.com/KernelPanicAUS/s3-policy-signer#readme",
+  "dependencies": {
+    "express": "^4.13.3"
+  }
+}
